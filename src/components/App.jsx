@@ -1,4 +1,3 @@
-//  import { useState, useEffect } from 'react';
 import { GlobalStyle } from '../GlobalStyled/GlobalStyle';
 import ContactForm from './ContactForm/ContactForm';
 import { Container, Title, Subtitle } from './App.styled';
@@ -84,11 +83,3 @@ export default function App() {
       </Container>
     );
   }
-
-  // return (
-  //     <Subtitle>Contacts</Subtitle>
-  //     <Filter value={filter} onChange={changeFilter} />
-  //     <ContactList
-  //       contacts={visibleContact}
-  //       onDeleteContact={deleteContact}
-  //     />
