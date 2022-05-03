@@ -17,18 +17,14 @@ import { createSlice } from '@reduxjs/toolkit';
     ],
     reducers: {
         addContact(state, action) {
-            state.push(action.payload)
+          state.push(action.payload)
         },
-        deleteContact(state, action) {
-            state.contacts.items.filter(item => item.id !== action.payload);
+        removeContact(state, action) {
+          return state = state.filter((item) => item.id !== action.payload);
             
         }
     }
   });
 
   
-  export const {addContact, deleteContact} = itemsSlice.actions;
-
-//   removeTodo(state, action) {
-//     state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
-// }
+  export const {addContact, removeContact} = itemsSlice.actions;

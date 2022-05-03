@@ -11,7 +11,7 @@ export const Filter = ({ value, onChange }) => (
     </div>
 );
 
-Filter.protoType = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-};
+// Filter.protoType = {
+//     value: PropTypes.string.isRequired,
+//     onChange: PropTypes.func.isRequired,
+// };

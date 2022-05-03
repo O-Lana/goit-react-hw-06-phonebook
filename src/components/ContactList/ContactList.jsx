@@ -1,12 +1,11 @@
 // import PropTypes from 'prop-types';
 import { Container, Item } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/itemsSlice';
+import { removeContact } from 'redux/itemsSlice';
 
 export const ContactList = () => {
     const contacts = useSelector(state => state.contacts.items);
     const dispatch = useDispatch();
-    console.log(contacts);
 
     return (
         <Container>
@@ -14,7 +13,7 @@ export const ContactList = () => {
                 {contacts.map(({ id, name, number }) => (
                     <Item key={id}>
                         {name}: {number}
-                        <button type="button" onClick={() => dispatch(deleteContact(id))}>Delete</button>
+                        <button type="button" onClick={() => dispatch(removeContact(id))}>Delete</button>
                     </Item>
                 ))}
                 </ul>

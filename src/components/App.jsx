@@ -4,13 +4,13 @@ import ContactForm from './ContactForm/ContactForm';
 import { Container, Title, Subtitle } from './App.styled';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
-// import { Filter } from './Filter/Filter';
+import { Filter } from './Filter/Filter';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact, deleteContact } from 'redux/itemsSlice';
+import { addContact } from 'redux/itemsSlice';
 
 // TODO
-// - сделать reducer - набор методов которыми мы будем использовать deleteContact, changeFilter;
+// - сделать reducer - набор методов которыми мы будем использовать changeFilter;
 // - filter ???
 // -изменить методы и пропсы
 
@@ -68,12 +68,6 @@ export default function App() {
   //   );
   // };
 
-  //????????????????
-  // const deleteContact = contactId => {
-  //   // setContacts(contacts.filter(contact => contact.id !== contactId));
-  //   dispatch(deleteContact(contactId));
-  // };
-
   // const visibleContact = getContact();
   
 
@@ -85,11 +79,8 @@ export default function App() {
 
         <Subtitle>Contacts</Subtitle>
         {/* <Filter value={filter} onChange={changeFilter} /> */}
-        <ContactList
-          // contacts={visibleContact}
-          // onDeleteContact={deleteContact}
-          // onDeleteContact={dispatch(deleteContact())}
-        />
+        <Filter />
+        <ContactList />
       </Container>
     );
   }
