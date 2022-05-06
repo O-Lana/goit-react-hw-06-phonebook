@@ -1,18 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addValue } from 'redux/filterSlice';
+import { filterContacts, getFilterValue } from 'redux/filterSlice';
 // import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.styled';
 
 
 export const Filter = () => {
+    const value = useSelector(getFilterValue);
     const dispatch = useDispatch();
-    const value = useSelector(state => state.contacts.filter);
 
-    const handleChangeFilter = event => {
-        dispatch(addValue(event.currentTarget.value));
+    const handleChangeFilter = e => {
+        dispatch(filterContacts(e.currentTarget.value));
     };
-
+    
 
     return (
         <div>

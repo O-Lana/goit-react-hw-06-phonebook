@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-//   {
-//     contacts: {
-//       items: [],
-//       filter: ''
-//     }
-//   }
-  
   export const itemsSlice = createSlice({
     name: 'items',
     initialState: [
@@ -21,10 +14,11 @@ import { createSlice } from '@reduxjs/toolkit';
         },
         removeContact(state, action) {
           return state = state.filter((item) => item.id !== action.payload);
-            
         }
-    }
+      }
   });
 
   
   export const {addContact, removeContact} = itemsSlice.actions;
+
+  export const getContacts = state => state.contacts.items;

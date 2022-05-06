@@ -5,36 +5,14 @@ import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
 
+
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/itemsSlice';
-
-// TODO
-// - сделать reducer - набор методов которыми мы будем использовать changeFilter;
-// - filter ???
-// -изменить методы и пропсы
-
-
 
 
 export default function App() { 
   const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
-
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(contacts);
-
-  //   if (parsedContacts) {
-  //     setContacts(parsedContacts);
-  //   };
-  // }, []);
-
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts])
 
   const addContacts = ({ name, number }) => {
       const normalizedName = name.toLowerCase();
@@ -77,7 +55,7 @@ export default function App() {
         <ContactForm onSubmit={addContacts}/>
 
         <Subtitle>Contacts</Subtitle>
-        {/* <Filter value={filter} onChange={changeFilter} /> */}
+        {/* <Filter value={filter} onChange={handleChangeFilter()} /> */}
         <Filter />
         <ContactList />
       </Container>
