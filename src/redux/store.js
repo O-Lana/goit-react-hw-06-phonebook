@@ -1,7 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import { itemsSlice } from './itemsSlice';
-import { filterSlice } from './filterSlice';
+import storage from 'redux-persist/lib/storage';
 import { 
   persistStore,
   persistReducer,
@@ -12,7 +11,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { itemsSlice } from './itemsSlice';
+import { filterSlice } from './filterSlice';
 
 const rootReducer = combineReducers({
   items: itemsSlice.reducer,

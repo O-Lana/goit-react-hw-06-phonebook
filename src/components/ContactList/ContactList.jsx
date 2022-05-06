@@ -1,24 +1,19 @@
 // import PropTypes from 'prop-types';
-import { Container, Item } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeContact, getContacts } from 'redux/itemsSlice';
 import { getFilterValue } from 'redux/filterSlice';
+import { Container, Item } from './ContactList.styled';
 
 export const ContactList = () => {
     const contacts = useSelector(getContacts);
+    const filter = useSelector(getFilterValue);
     const dispatch = useDispatch();
 
-    const filter = useSelector(getFilterValue);
-
-    // const getContact = () => {
         const normalizedFilter = filter.toLowerCase();
     
         const filteredContacts = contacts.filter((contact) =>
           contact.name.toLowerCase().includes(normalizedFilter)
         );
-    //   };
-    
-    //   const visibleContact = getContact();
 
     return (
         <Container>
@@ -33,8 +28,3 @@ export const ContactList = () => {
         </Container>
     );
 };
-
-// ContactList.propTypes = {
-//     contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-//     onDeleteContact: PropTypes.func.isRequired,
-// }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterContacts, getFilterValue } from 'redux/filterSlice';
-// import PropTypes from 'prop-types';
 import { Label, Input } from './Filter.styled';
 
 
@@ -13,7 +12,6 @@ export const Filter = () => {
         dispatch(filterContacts(e.currentTarget.value));
     };
     
-
     return (
         <div>
             <Label>
@@ -23,8 +21,3 @@ export const Filter = () => {
         </div>
     );
 }
-
-// Filter.protoType = {
-//     value: PropTypes.string.isRequired,
-//     onChange: PropTypes.func.isRequired,
-// };

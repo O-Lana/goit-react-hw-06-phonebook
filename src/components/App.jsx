@@ -1,17 +1,15 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { GlobalStyle } from '../GlobalStyled/GlobalStyle';
-import ContactForm from './ContactForm/ContactForm';
-import { Container, Title, Subtitle } from './App.styled';
+import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
-
-
-import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/itemsSlice';
-
+import { getContacts } from 'redux/itemsSlice';
+import { Container, Title, Subtitle } from './App.styled';
 
 export default function App() { 
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const addContacts = ({ name, number }) => {
@@ -33,21 +31,6 @@ export default function App() {
       dispatch(addContact(contact));
   };
 
-  // const changeFilter = e => {
-  //   setFilter(e.currentTarget.value);
-  // };
-
-  // const getContact = () => {
-  //   const normalizedFilter = filter.toLowerCase();
-
-  //   return contacts.filter((contact) =>
-  //     contact.name.toLowerCase().includes(normalizedFilter)
-  //   );
-  // };
-
-  // const visibleContact = getContact();
-  
-
     return (
       <Container>
         <GlobalStyle />
@@ -55,7 +38,6 @@ export default function App() {
         <ContactForm onSubmit={addContacts}/>
 
         <Subtitle>Contacts</Subtitle>
-        {/* <Filter value={filter} onChange={handleChangeFilter()} /> */}
         <Filter />
         <ContactList />
       </Container>
